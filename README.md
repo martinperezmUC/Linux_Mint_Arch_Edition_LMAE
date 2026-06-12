@@ -247,7 +247,7 @@ Edit `/usr/lib/systemd/user/xdg-desktop-portal.service`:
 `sudo pacman -S fastfetch baobab gnome-calculator gnome-calendar firefox
 noto-fonts noto-fonts-emoji noto-fonts-cjk ufw gufw drawing
 gnome-disk-utility gnome-power-manager file-roller simple-scan
-gnome-system-monitor gnome-screenshot seahorse`
+gnome-system-monitor gnome-screenshot seahorse nemo-fileroller`
 
 #### Enable Firewall (don't forget to activate it later)
 `sudo systemctl enable --now ufw`
