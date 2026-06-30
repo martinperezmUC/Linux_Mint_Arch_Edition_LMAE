@@ -214,7 +214,7 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 >
 `sudo pacman -S ttf-dejavu ttf-liberation rtkit cups`
 >
-`systemctl enable bluetooth.service`
+`systemctl enable bluetooth.servicem cronie`
 >
 `systemctl enable cups`
 >
@@ -222,7 +222,7 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 
 ---
 
-## ⚠️ Reported BUG: xdg-desktop-portal (1.22.0-1)
+## ⚠️ Reported BUG: xdg-desktop-portal (1.22.0-1) (fixed in 1.22.1-2)
 
 > [!WARNING]
 > There is a reported bug that prevents xdg-desktop-portal from starting correctly, which breaks dark mode detection in GTK (https://gitlab.archlinux.org/archlinux/packaging/packages/xdg-desktop-portal/-/work_items/4). Until an official fix is released, apply the following patch:
