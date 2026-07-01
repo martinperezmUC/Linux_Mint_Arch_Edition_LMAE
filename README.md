@@ -214,7 +214,7 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 >
 `sudo pacman -S ttf-dejavu ttf-liberation rtkit cups`
 >
-`systemctl enable bluetooth.servicem cronie`
+`systemctl enable bluetooth.service cronie`
 >
 `systemctl enable cups`
 >
