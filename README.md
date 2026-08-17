@@ -210,7 +210,7 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 #### Enable services and add visual elements typical from Linux Mint / Audio
 `systemctl enable lightdm`
 >
-`paru -S mint-artwork` (this may take a while to compile and install)
+`paru -S mint-artwork` (this may take a while to compile and install - just if you want mint themes)
 >
 `sudo pacman -S ttf-dejavu ttf-liberation rtkit cups`
 >
@@ -219,25 +219,6 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 `systemctl enable cups`
 >
 `reboot`
-
----
-
-## ⚠️ Reported BUG: xdg-desktop-portal (1.22.0-1) (fixed in 1.22.1-2)
-
-> [!WARNING]
-> There is a reported bug that prevents xdg-desktop-portal from starting correctly, which breaks dark mode detection in GTK (https://gitlab.archlinux.org/archlinux/packaging/packages/xdg-desktop-portal/-/work_items/4). Until an official fix is released, apply the following patch:
-
-#### Modify the Systemd service
-Edit `/usr/lib/systemd/user/xdg-desktop-portal.service`:
-```diff
- [Unit]
- Description=Portal service
- PartOf=graphical-session.target
--Requisite=graphical-session.target
-+Requires=dbus.service
-+After=dbus.service
- After=graphical-session.target
-```
 
 ---
 
