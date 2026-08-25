@@ -196,12 +196,9 @@ Installation of the graphics server, the LightDM session manager, and the core C
 
 #### Graphical server, LightDM, and Cinnamon base
 
-`sudo pacman -S xorg-server lightdm lightdm-slick-greeter cinnamon xed
+`sudo pacman -S xorg-server lightdm lightdm-slick-greeter cinnamon cinnamon-translations xed
 xviewer xreader system-config-printer blueman gnome-terminal
 xdg-user-dirs xdg-desktop-portal-xapp xdg-desktop-portal-gtk xdg-desktop-portal`
-
-#### Force user directories to Spanish
-`LC_ALL=es_ES.UTF-8 xdg-user-dirs-update --force `
 
 #### LightDM Login Configuration
 Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment and modify the following line:
@@ -228,7 +225,8 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 `sudo pacman -S fastfetch baobab gnome-calculator gnome-calendar firefox
 noto-fonts noto-fonts-emoji noto-fonts-cjk ufw gufw drawing
 gnome-disk-utility gnome-power-manager file-roller simple-scan
-gnome-system-monitor gnome-screenshot seahorse nemo-fileroller ffmpegthumbnailer`
+gnome-system-monitor gnome-screenshot seahorse nemo-fileroller ffmpegthumbnailer
+nemo-emblems nemo-image-converter nemo-terminal`
 
 #### Enable Firewall (don't forget to activate it later)
 `sudo systemctl enable --now ufw`
