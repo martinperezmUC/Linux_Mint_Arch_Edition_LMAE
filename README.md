@@ -168,14 +168,14 @@ options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rootflags=subvol=@ rw
 >
 `timedatectl set-ntp true`
 
-#### Install PARU (AUR Helper)
-`git clone https://aur.archlinux.org/paru.git`
+#### Install YAY (AUR Helper)
+`git clone https://aur.archlinux.org/yay.git`
 >
-`cd paru`
+`cd yay`
 >
 `makepkg -si`
 >
-`cd .. && rm -rf paru`
+`cd .. && rm -rf yay`
 
 #### Configure the X11 keymap and enable 32-bit repositories
 `sudo localectl set-x11-keymap es`
@@ -198,22 +198,35 @@ Installation of the graphics server, the LightDM session manager, and the core C
 
 `sudo pacman -S xorg-server lightdm lightdm-slick-greeter cinnamon cinnamon-translations xed
 xviewer xreader system-config-printer blueman gnome-terminal
-xdg-user-dirs xdg-desktop-portal-xapp xdg-desktop-portal-gtk xdg-desktop-portal`
+xdg-user-dirs xdg-desktop-portal-xapp xdg-desktop-portal-gtk xdg-desktop-portal wget`
 
 #### LightDM Login Configuration
-Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment and modify the following line:
+Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment and modify the following lines:
 `greeter-session=lightdm-slick-greeter`
-
-#### Enable services and add visual elements typical from Linux Mint / Audio
+>
+`user-session=cinnamon`
+>
+#### Enable services and add visual or energy elements typical from Linux Mint / Audio
+Sounds can be assigned later through sound settings tray app.
+Mint-X and Mint-Y themes will appear as theme styles only after copying the styles.d folder.
+>
 `systemctl enable lightdm`
 >
-`paru -S mint-artwork` (this may take a while to compile and install - just if you want mint themes)
+`sudo pacman -S ttf-dejavu ttf-liberation ttf-ubuntu-font-family cups power-profiles-daemon`
 >
-`sudo pacman -S ttf-dejavu ttf-liberation rtkit cups`
+`systemctl enable bluetooth cronie cups power-profiles-daemon`
 >
-`systemctl enable bluetooth.service cronie`
+`yay -S bibata-cursor-theme-bin mint-themes mint-x-icons mint-y-icons`
 >
-`systemctl enable cups`
+`wget http://packages.linuxmint.com/pool/main/m/mint-artwork/mint-artwork_1.9.3.tar.xz`
+>
+`tar -xf mint-artwork_1.9.3.tar.xz`
+>
+`sudo mkdir /usr/share/sounds/mint/`
+>
+`sudo cp -r mint-artwork/usr/share/mint-artwork/sounds/* /usr/share/sounds/mint/`
+>
+`sudo cp -r mint-artwork/usr/share/mint-artwork/styles.d/ /usr/share/cinnamon`
 >
 `reboot`
 
@@ -223,7 +236,7 @@ Edit `/etc/lightdm/lightdm.conf`. Look for the `seat:*]` section and uncomment a
 
 #### LMDE Included Applications, emojis and oriental fonts (Linux Mint Debian Edition)
 `sudo pacman -S fastfetch baobab gnome-calculator gnome-calendar firefox
-noto-fonts noto-fonts-emoji noto-fonts-cjk ufw gufw drawing
+noto-fonts noto-fonts-emoji noto-fonts-cjk ufw gufw pinta
 gnome-disk-utility gnome-power-manager file-roller simple-scan
 gnome-system-monitor gnome-screenshot seahorse nemo-fileroller ffmpegthumbnailer
 nemo-emblems nemo-image-converter nemo-terminal`
@@ -234,6 +247,6 @@ nemo-emblems nemo-image-converter nemo-terminal`
 #### Other apps and frameworks of interest
 `sudo pacman -S jdk-openjdk btop lact libreoffice-fresh lutris vlc vlc-plugins-all steam flatpak`
 >
-`paru -S visual-studio-code-bin`
+`yay -S visual-studio-code-bin`
 >
 `flatpak install flatseal`
