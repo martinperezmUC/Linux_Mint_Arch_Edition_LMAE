@@ -161,7 +161,7 @@ options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rootflags=subvol=@ rw
 
 ---
 
-## Step 6: Post-Installation (Drivers and Paru AUR Helper)
+## Step 6: Post-Installation (Drivers and Yay AUR Helper)
 
 #### Connect to Wi-Fi and sync the time
 `nmcli d wifi connect <SSID> --ask`
@@ -226,7 +226,7 @@ Mint-X and Mint-Y themes will appear as theme styles only after copying the styl
 >
 `sudo cp -r mint-artwork/usr/share/mint-artwork/sounds/* /usr/share/sounds/mint/`
 >
-`sudo cp -r mint-artwork/usr/share/mint-artwork/styles.d/ /usr/share/cinnamon`
+`sudo cp -r mint-artwork/usr/share/cinnamon/styles.d/ /usr/share/cinnamon`
 >
 `reboot`
 
